@@ -6,6 +6,37 @@
 
 ## Como rodar o projeto baixado
 
+- Duplicar o arquivo ".env.example" e renomear para ".env".
+
+Instalar as dependências do PHP.
+```
+composer install
+```
+
+Instalar as dependências do Node.js.
+```
+npm install
+```
+
+Gerar a chave no arquivo .env.
+```
+php artisan key:generate
+```
+
+Iniciar o projeto criado com Laravel.
+```
+php artisan serve
+```
+
+Executar as bibliotecas Node.js.
+```
+npm run dev
+```
+
+Acessar a página criada com Laravel.
+```
+http://127.0.0.1:8000
+```
 
 ## Sequência para criar o projeto
 
