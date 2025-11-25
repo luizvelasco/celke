@@ -7,6 +7,15 @@
 ## Como rodar o projeto baixado
 
 - Duplicar o arquivo ".env.example" e renomear para ".env".
+- Alterar as credenciais do banco de dados.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=celke
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
 Instalar as dependências do PHP.
 ```
@@ -21,6 +30,16 @@ npm install
 Gerar a chave no arquivo .env.
 ```
 php artisan key:generate
+```
+
+Executar as migrations para criar as tabelas e as colunas.
+```
+php artisan migrate
+```
+
+Executar seed com php artisan para cadastrar registros de testes.
+```
+php artisan db:seed
 ```
 
 Iniciar o projeto criado com Laravel.
@@ -53,6 +72,32 @@ php artisan serve
 Acessar o conteúdo padrão do Laravel.
 ```
 http://127.0.0.1:8000
+```
+
+Executar as migrations para criar as tabelas e as colunas.
+```
+php artisan migrate
+```
+
+Executar seed com php artisan para cadastrar registros de testes.
+```
+php artisan db:seed
+```
+
+Criar Controller com php artisan.
+```
+php artisan make:controller NomeController
+```
+```
+php artisan make:controller UserController
+```
+
+Criar View com php artisan.
+```
+php artisan make:view diretorio.nome-view
+```
+```
+php artisan make:view user.index
 ```
 
 ## Autor
