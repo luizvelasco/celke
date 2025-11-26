@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -9,9 +10,10 @@ class UserController extends Controller
     // Listar os usuários
     public function index()
     {
-        //dd('Carregar os usuários');
+        // Recuperar os registros do banco de dados
+        $users = User::orderBy('id', 'DESC')->get();
 
-        return view('users.index');
+        return view('users.index', ['users' => $users]);
     }
 
     // Visualizar o usuário
