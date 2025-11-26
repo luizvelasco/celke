@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.admin')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+@section('content')
+    Bem-vindo!<br><br>
 
-    </head>
-    <body>
-        Bem-vindo!<br><br>
-
-        <a href="{{ route('users.index') }}">Usuários</a><br><br>
-    </body>
-</html>
+    <a href="{{ route('users.index') }}">Usuários</a><br><br>
+@endsection

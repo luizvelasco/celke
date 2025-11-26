@@ -38,7 +38,7 @@ class UserController extends Controller
         ]);
 
         // Redirecionar o usuário 
-        return redirect()->route('users.index')->with('success', 'Usuário cadastrado com sucesso!');
+        return redirect()->route('users.create')->with('success', 'Usuário cadastrado com sucesso!');
     }
 
     // Carregar o formulário editar usuário
