@@ -9,7 +9,15 @@
     </head>
     <body>
         <div>
-            <h1>Listar os Usuários</h1>
+            <h2>Listar os Usuários</h2>
+
+            <a href="{{ route('users.create') }}">Cadastrar</a><br><br>
+
+            @if (session('success'))
+                <p style="color:green">
+                    {{ session('success') }}
+                </p>
+            @endif
 
             {{-- Imprimir os regitros --}}
             @forelse ($users as $user)

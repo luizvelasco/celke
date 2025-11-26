@@ -8,6 +8,8 @@
 
     </head>
     <body>
-        Bem-vindo!
+        Bem-vindo!<br><br>
+
+        <a href="{{ route('users.index') }}">Usuários</a><br><br>
     </body>
 </html>

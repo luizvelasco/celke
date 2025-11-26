@@ -28,6 +28,19 @@ class UserController extends Controller
         return view('users.create');
     }
 
+    // Cadastrar no banco de dados o novo usuário
+    public function store(Request $request)
+    {
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+        // Redirecionar o usuário 
+        return redirect()->route('users.index')->with('success', 'Usuário cadastrado com sucesso!');
+    }
+
     // Carregar o formulário editar usuário
     public function edit()
     {
