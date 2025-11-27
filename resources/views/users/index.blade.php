@@ -13,7 +13,8 @@
             ID: {{ $user->id }} <br>
             Nome: {{ $user->name }} <br>
             E-mail: {{ $user->email }} <br>
-            <a href="{{ route('users.show', ['user' => $user->id]) }}">Visualizar</a>
+            <a href="{{ route('users.show', ['user' => $user->id]) }}">Visualizar</a><br>
+            <a href="{{ route('users.edit', ['user' => $user->id]) }}">Editar</a>
             <hr>
         @empty
             <h3>Nenhum registro encontrado.</h3>

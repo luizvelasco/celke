@@ -43,9 +43,22 @@ class UserController extends Controller
     }
 
     // Carregar o formulário editar usuário
-    public function edit()
+    public function edit(User $user)
     {
-        return view('users.edit');
+        return view('users.edit', ['user' => $user]);
+    }
+
+    // Editar no banco de dados o usuário
+    public function update(Request $request, User $user)
+    {
+        // Editar as informações do registro no banco de dados
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        // Redirecionar o usuário 
+        return redirect()->route('users.show', ['user' => $user->id])->with('success', 'Usuário atualizado com sucesso!');
     }
 
     // Apagar o usuário
