@@ -81,8 +81,12 @@ class UserController extends Controller
     }
 
     // Apagar o usuário
-    public function destroy()
+    public function destroy(User $user)
     {
-        dd('Apagar o usuário');
+        // Excluir o registro do banco de dados
+        $user->delete();
+
+        // Redirecionar o usuário, enviar a mensagem de sucesso
+        return redirect()->route('users.index')->with('success', 'Senha do usuário editado com sucesso!');
     }
 }

@@ -4,6 +4,8 @@
 
     <h2>Detalhes do usuário</h2>
     <a href="{{ route('users.index') }}">Listar</a><br><br>
+    <a href="{{ route('users.edit', ['user' => $user->id]) }}">Editar</a><br><br>
+    <a href="{{ route('users.edit.password', ['user' => $user->id]) }}">Editar a senha</a><br><br>
 
     <x-alert/>
 
