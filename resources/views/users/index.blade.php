@@ -12,7 +12,9 @@
         @forelse ($users as $user)
             ID: {{ $user->id }} <br>
             Nome: {{ $user->name }} <br>
-            E-mail: {{ $user->email }} <hr>
+            E-mail: {{ $user->email }} <br>
+            <a href="{{ route('users.show', ['user' => $user->id]) }}">Visualizar</a>
+            <hr>
         @empty
             <h3>Nenhum registro encontrado.</h3>
         @endforelse

@@ -17,9 +17,10 @@ class UserController extends Controller
     }
 
     // Visualizar o usuário
-    public function show()
+    public function show(User $user)
     {
-        return view('users.show');
+        
+        return view('users.show', ['user' => $user]);
     }
 
     // Carregar o formulário cadastrar usuário
@@ -31,14 +32,14 @@ class UserController extends Controller
     // Cadastrar no banco de dados o novo usuário
     public function store(Request $request)
     {
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
         ]);
 
         // Redirecionar o usuário 
-        return redirect()->route('users.create')->with('success', 'Usuário cadastrado com sucesso!');
+        return redirect()->route('users.show', ['user' => $user->id])->with('success', 'Usuário cadastrado com sucesso!');
     }
 
     // Carregar o formulário editar usuário
