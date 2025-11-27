@@ -61,6 +61,25 @@ class UserController extends Controller
         return redirect()->route('users.show', ['user' => $user->id])->with('success', 'Usuário atualizado com sucesso!');
     }
 
+    // Carregar o formulário editar senha do usuário
+    public function editPassword(User $user)
+    {
+        // Carregar a view 
+        return view('users.edit-password', ['user' => $user]);
+    }
+
+    // Editar no banco de dados a senha do usuário
+    public function updatePassword(Request $request, User $user)
+    {
+        // Editar as informações do registro no banco de dados
+        $user->update([
+            'password' => $request->password,
+        ]);
+
+        // Redirecionar o usuário, enviar a mensagem de sucesso
+        return redirect()->route('users.show', ['user' => $user->id])->with('success', 'Senha do usuário editado com sucesso!');
+    }
+
     // Apagar o usuário
     public function destroy()
     {
