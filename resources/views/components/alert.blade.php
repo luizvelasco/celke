@@ -9,3 +9,13 @@
         {{ session('error') }}
     </p>
 @endif
+
+@if ($errors->any())
+
+    <p style="color: red">
+        @foreach ($errors->all() as $error)
+            {{ $error }}
+        @endforeach
+    </p>
+    
+@endif

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class UserController extends Controller
     }
 
     // Cadastrar no banco de dados o novo usuário
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
 
         // Capturar possíveis excessões durante a execução
@@ -62,7 +63,7 @@ class UserController extends Controller
     }
 
     // Editar no banco de dados o usuário
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
 
         // Capturar possíveis excessões durante a execução
@@ -95,9 +96,22 @@ class UserController extends Controller
     // Editar no banco de dados a senha do usuário
     public function updatePassword(Request $request, User $user)
     {
-
-         // Capturar possíveis excessões durante a execução
+        // Validar o formulário
+        $request->validate(
+            [
+                'password' => 'required|confirmed|min:6',
+            ],
+            [
+                'password.required' => 'Campo senha é obrigatório!',
+                'password.confirmed' => 'A confirmação da senha não corresponde',
+                'password.min' => 'Senha com no mínimo :min caracteres!',
+            ]
+        );
+        
+        // Capturar possíveis excessões durante a execução
         try {
+
+           
 
             // Editar as informações do registro no banco de dados
             $user->update([

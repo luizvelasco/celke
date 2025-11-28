@@ -16,6 +16,9 @@
             <label for="password">Senha: </label>
             <input type="password" name="password" id="password" placeholder="Senha do usuário" required><br><br>
 
+            <label for="password_confirmation">Confirmar a Senha: </label>
+            <input type="password" name="password_confirmation" id="password_confirmation" required placeholder="Confirmar a senha" ><br><br>
+
             <button type="submit">Editar</button>
 
         </form>
